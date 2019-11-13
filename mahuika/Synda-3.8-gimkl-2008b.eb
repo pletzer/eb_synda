@@ -1,0 +1,27 @@
+easyblock = 'CmdCp'
+
+name = 'Synda'
+version = '3.8'
+
+homepage = 'http://prodiguer.github.io/synda/sdp/replication.html'
+description = """Synda Transfer Module - Replicate ESGF"""
+
+toolchain = {'name': 'gimkl', 'version': '2018b'}
+
+source_urls = []
+sources = []
+checksums = []
+
+configure_cmd_prefix = 'wget --no-check-certificate https://raw.githubusercontent.com/Prodiguer/synda/master/sdc/install.sh'
+
+configure_cmd = 'export SYNDA_HOME=$EASYBUILD_PACKAGEPATH/Synda'
+files_to_copy = ['$SYNDA_HOME/sdt']
+build_cmd = 'chmod u+x install.sh && ./install.sh -d 3.8i -t $SYNDA_HOME' 
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': [],
+}
+
+moduleclass = 'tools'
+
